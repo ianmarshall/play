@@ -1,0 +1,132 @@
+<xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:app1="http://xml.weather.yahoo.com/ns/rss/1.0" xmlns:app2="http://www.w3.org/2003/01/geo/wgs84_pos#" msdata:schemafragmentcount="3">
+<!-- Generated using Flame-Ware Solutions XML-2-XSD v2.0 at http://www.flame-ware.com/Products/XML-2-XSD/ -->
+  <xs:import namespace="http://xml.weather.yahoo.com/ns/rss/1.0" />
+  <xs:import namespace="http://www.w3.org/2003/01/geo/wgs84_pos#" />
+  <xs:element name="rss">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="channel" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="title" type="xs:string" minOccurs="0" />
+              <xs:element name="link" type="xs:string" minOccurs="0" />
+              <xs:element name="description" type="xs:string" minOccurs="0" />
+              <xs:element name="language" type="xs:string" minOccurs="0" />
+              <xs:element name="lastBuildDate" type="xs:string" minOccurs="0" />
+              <xs:element name="ttl" type="xs:string" minOccurs="0" />
+              <xs:element ref="app1:location" />
+              <xs:element ref="app1:units" />
+              <xs:element ref="app1:wind" />
+              <xs:element ref="app1:atmosphere" />
+              <xs:element ref="app1:astronomy" />
+              <xs:element name="image" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="title" type="xs:string" minOccurs="0" />
+                    <xs:element name="width" type="xs:string" minOccurs="0" />
+                    <xs:element name="height" type="xs:string" minOccurs="0" />
+                    <xs:element name="link" type="xs:string" minOccurs="0" />
+                    <xs:element name="url" type="xs:string" minOccurs="0" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="item" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="title" type="xs:string" minOccurs="0" />
+                    <xs:element ref="app2:lat" minOccurs="0" />
+                    <xs:element ref="app2:long" minOccurs="0" />
+                    <xs:element name="link" type="xs:string" minOccurs="0" />
+                    <xs:element name="pubDate" type="xs:string" minOccurs="0" />
+                    <xs:element name="description" type="xs:string" minOccurs="0" />
+                    <xs:element ref="app1:condition" />
+                    <xs:element ref="app1:forecast" />
+                    <xs:element name="guid" nillable="true" minOccurs="0" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:simpleContent msdata:ColumnName="guid_Text" msdata:Ordinal="1">
+                          <xs:extension base="xs:string">
+                            <xs:attribute name="isPermaLink" type="xs:string" />
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="version" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="rss" />
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
+<xs:schema targetNamespace="http://www.w3.org/2003/01/geo/wgs84_pos#" xmlns:mstns="http://www.w3.org/2003/01/geo/wgs84_pos#" xmlns="http://www.w3.org/2003/01/geo/wgs84_pos#" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" attributeFormDefault="qualified" elementFormDefault="qualified" xmlns:app2="http://www.w3.org/2003/01/geo/wgs84_pos#" xmlns:app1="http://xml.weather.yahoo.com/ns/rss/1.0">
+  <xs:import namespace="http://xml.weather.yahoo.com/ns/rss/1.0" />
+  <xs:element name="lat" msdata:Prefix="geo" type="xs:string" />
+  <xs:element name="long" msdata:Prefix="geo" type="xs:string" />
+</xs:schema>
+<xs:schema targetNamespace="http://xml.weather.yahoo.com/ns/rss/1.0" xmlns:mstns="http://xml.weather.yahoo.com/ns/rss/1.0" xmlns="http://xml.weather.yahoo.com/ns/rss/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" attributeFormDefault="qualified" elementFormDefault="qualified" xmlns:app1="http://xml.weather.yahoo.com/ns/rss/1.0" xmlns:app2="http://www.w3.org/2003/01/geo/wgs84_pos#">
+  <xs:import namespace="http://www.w3.org/2003/01/geo/wgs84_pos#" />
+  <xs:element name="location" msdata:Prefix="yweather">
+    <xs:complexType>
+      <xs:attribute name="city" form="unqualified" type="xs:string" />
+      <xs:attribute name="region" form="unqualified" type="xs:string" />
+      <xs:attribute name="country" form="unqualified" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="units" msdata:Prefix="yweather">
+    <xs:complexType>
+      <xs:attribute name="temperature" form="unqualified" type="xs:string" />
+      <xs:attribute name="distance" form="unqualified" type="xs:string" />
+      <xs:attribute name="pressure" form="unqualified" type="xs:string" />
+      <xs:attribute name="speed" form="unqualified" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="wind" msdata:Prefix="yweather">
+    <xs:complexType>
+      <xs:attribute name="chill" form="unqualified" type="xs:string" />
+      <xs:attribute name="direction" form="unqualified" type="xs:string" />
+      <xs:attribute name="speed" form="unqualified" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="atmosphere" msdata:Prefix="yweather">
+    <xs:complexType>
+      <xs:attribute name="humidity" form="unqualified" type="xs:string" />
+      <xs:attribute name="visibility" form="unqualified" type="xs:string" />
+      <xs:attribute name="pressure" form="unqualified" type="xs:string" />
+      <xs:attribute name="rising" form="unqualified" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="astronomy" msdata:Prefix="yweather">
+    <xs:complexType>
+      <xs:attribute name="sunrise" form="unqualified" type="xs:string" />
+      <xs:attribute name="sunset" form="unqualified" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="condition" msdata:Prefix="yweather">
+    <xs:complexType>
+      <xs:attribute name="text" form="unqualified" type="xs:string" />
+      <xs:attribute name="code" form="unqualified" type="xs:string" />
+      <xs:attribute name="temp" form="unqualified" type="xs:string" />
+      <xs:attribute name="date" form="unqualified" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="forecast" msdata:Prefix="yweather">
+    <xs:complexType>
+      <xs:attribute name="day" form="unqualified" type="xs:string" />
+      <xs:attribute name="date" form="unqualified" type="xs:string" />
+      <xs:attribute name="low" form="unqualified" type="xs:string" />
+      <xs:attribute name="high" form="unqualified" type="xs:string" />
+      <xs:attribute name="text" form="unqualified" type="xs:string" />
+      <xs:attribute name="code" form="unqualified" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

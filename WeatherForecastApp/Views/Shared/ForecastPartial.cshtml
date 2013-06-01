@@ -1,0 +1,37 @@
+﻿@model rss
+<script>
+    $(function () {
+        $("#changeUnits").click(function () {
+            var API = '/Weather/GetWeatherPartial/44418/' + $(this).attr("value");
+            LoadWeatherPartial(API);
+        }
+        );
+    });
+</script>
+
+@foreach (var channel in Model.channel)
+{
+    <div style="border: 0px 0px 0px 0px; padding: 0px 0px 0px 0px; margin-left: auto; margin-right: auto; position: relative; width: 728px; overflow: hidden;">
+        <h2>@channel.title - @channel.lastBuildDate</h2>
+        @Html.Raw(channel.item.FirstOrDefault().description)
+
+        @{
+    if (channel.units.temperature == "C")
+    {
+            <button type="button" value="F" id="changeUnits">Change to Fahrenheit</button>
+    }
+    else
+    {
+            <button type="button" value="c" id="changeUnits">Change to Celsius</button>
+    }
+            @DateTime.Now; 
+    }
+        
+
+
+
+
+    </div>
+
+}
+
