@@ -11,8 +11,14 @@ namespace WeatherForecastApp.Services
 {
     public class RssReader : IRssReader
     {
-        private const string Url = "http://weather.yahooapis.com/forecastrss?w=";
+        private const string Url = "http://weather.yahooapis.com/forecastrss";
 
+        /// <summary>
+        /// De-serializes the results of the yahoo weather feed into instances of rss.
+        /// </summary>
+        /// <param name="woeid"></param>
+        /// <param name="degreesUnits"></param>
+        /// <returns></returns>
         public rss GetWeatherRss(int woeid, char degreesUnits)
         {
             rss rssFeed;
@@ -20,7 +26,7 @@ namespace WeatherForecastApp.Services
             {
                 var ser = new XmlSerializer(typeof(rss));
 
-                using (var reader = XmlReader.Create(Url + woeid + "&u=" + degreesUnits))
+                using (var reader = XmlReader.Create(string.Format("{0}?w={1}&u={2}", Url, woeid, degreesUnits)))
                 {
                     rssFeed = (rss)ser.Deserialize(reader);
                 }
@@ -32,6 +38,10 @@ namespace WeatherForecastApp.Services
             return rssFeed;
         }
 
+        /// <summary>
+        /// Not implemented
+        /// </summary>
+        /// <returns></returns>
         public static IEnumerable<Rss> GetRssFeed()
         {
             var feedXml = XDocument.Load(Url);
@@ -47,7 +57,9 @@ namespace WeatherForecastApp.Services
 
         }
 
-
+        /// <summary>
+        /// Not implemented due to known date bugs
+        /// </summary>
         public static WeatherModel GetWeatherFeed()
         {
             var model = new WeatherModel();

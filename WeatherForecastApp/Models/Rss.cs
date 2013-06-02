@@ -1,6 +1,8 @@
-﻿
-namespace WeatherForecastApp.Models
+﻿namespace WeatherForecastApp.Models
 {
+    /// <summary>
+    /// Not implementred
+    /// </summary>
     public class Rss
     {
         public string Link { get; set; }

@@ -1,6 +1,4 @@
-﻿
-
-@{
+﻿@{
     Layout = null;
 }
 
@@ -10,66 +8,23 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <script src="@Url.Content("~/Scripts/jquery-2.0.1.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/weather.js")" type="text/javascript"></script>
     <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-      <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
     <title>Weather</title>
-
 </head>
 
-<script>
-    $(document).ready(function () {
-        var API = '/Weather/GetWeatherPartial/44418/';
-        LoadWeatherPartial(API);
-        //var myTimer = timer.start(function() {},1000);
-
-    });
-    
-   
-
-    //setInterval(function () {
-    //    var API = '/Weather/GetWeatherPartial/44418/' + $('#changeUnits').attr("value");;
-    //    LoadWeatherPartial(API);
-    //}, 30000); //30 seconds
-
-    function LoadWeather(url) {
-        $.getJSON(url, function (data) {
-            $.each(data.channel, function (item) {
-                $('#showdata').empty().html(data.channel[item].item[0].description);
-            }
-            );
-
-        });
-    }
-    
-    function LoadWeatherPartial(url) {
-        $.ajax({
-            url: url,
-            datatype: 'html',
-            success: function(data) {
-                $('#showdata').empty().html(data);
-            }
-        });
-    }
-    
-    $(function () {
-        $("#slider").slider({
-            value: 100,
-            min: 0,
-            max: 500,
-            step: 50,
-            slide: function (event, ui) {
-               
-            }
-        });
-      
-    });
-
-</script>
-
-    <body>
-         
+<body>
+    <div style="border: 0px 0px 0px 0px; padding: 0px 0px 0px 0px; margin-left: auto; margin-right: auto; position: relative; width: 728px; overflow: hidden;">
         <div id="showdata"></div>
-        
-       <div id="slider" width="200"></div>
-    </body>
+        <p>Last Refresh: <span id="lastRefresh"></span> - Refresh rate: <span id="refreshInterval">@ViewBag.RefreshInterval</span> ms</p>
+        <label>Temperature Units: </label>
+        <input type="radio" name="temperatureUnits" value="c" checked="checked">Celsius</input>
+        <input type="radio" name="temperatureUnits" value="f">Fahrenheit</input>
+        <br/><br/>
+        <label>Where on Earth IDentifier: </label>
+        <input type="text" value="44418" name="woeidInput" /><button id="woeidButton">Change</button>
+    </div>
+
+</body>
 </html>
