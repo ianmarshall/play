@@ -20,7 +20,6 @@ namespace WeatherForecastApp.Controllers
             return View();
         }
 
-
         /// <summary>
         /// Returns a partial view of the latest weather foreacst based on inputs
         /// </summary>
