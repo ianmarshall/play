@@ -5,6 +5,9 @@ using WeatherForecastApp.Services;
 
 namespace WeatherForecastApp.Controllers
 {
+     /// <summary>
+    /// Main weather controller
+    /// </summary>
     public class WeatherController : Controller
     {
         private IRssReader _rssReader;
