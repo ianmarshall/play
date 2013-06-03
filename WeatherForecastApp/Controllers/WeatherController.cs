@@ -1,4 +1,4 @@
-﻿using System.Configuration;
+using System.Configuration;
 using System.Web.Mvc;
 using WeatherForecastApp.Services;
 
@@ -9,6 +9,10 @@ namespace WeatherForecastApp.Controllers
     {
         private IRssReader _rssReader;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="IRssReader"/> class using DI
+        /// </summary>
+        /// <param name="rssReader"></param>
         public WeatherController(IRssReader rssReader)
         {
             _rssReader = rssReader;
@@ -21,7 +25,7 @@ namespace WeatherForecastApp.Controllers
         }
 
         /// <summary>
-        /// Returns a partial view of the latest weather foreacst based on inputs
+        /// Returns a partial view of the latest weather foreacast based on inputs
         /// </summary>
         /// <param name="woeid"></param>
         /// <param name="degreesUnits"></param>
