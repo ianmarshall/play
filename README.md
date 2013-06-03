@@ -1,4 +1,4 @@
-# BGL Technical Test
+BGL Technical Test
 ====
 #### Description
 MVC4 web application that displays the current weather forecast by consuming a publicly available RSS feed.
