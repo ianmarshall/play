@@ -3,7 +3,7 @@
 #### Description
 MVC4 web application that displays the current weather forecast by consuming a publicly available RSS feed.
 
-Features
+Features :
 * Automatically refreshes view from a configurable setting via web.confg
 * Option to change temperature units from Fahrenheit to Celsius
 * Option to change Where on Earth Identifier (WOEID)
