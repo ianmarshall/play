@@ -18,6 +18,10 @@ namespace WeatherForecastApp.Controllers
             _rssReader = rssReader;
         }
 
+        /// <summary>
+        /// Returns main Index view including Refresh Interval setting
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Index()
         {
             ViewBag.RefreshInterval = ConfigurationManager.AppSettings["RefreshInterval"];
