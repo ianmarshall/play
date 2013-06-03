@@ -8,7 +8,7 @@ Features :
 * Option to change temperature units from Fahrenheit to Celsius
 * Option to change Where on Earth Identifier (WOEID)
 * Controller implements dependency injection for mocking and unit tests
-* All channel elements are available in specific rss class using Deserialization (created using XML Schema Definition Tool)
+* All channel elements are available in a specific "rss" class using Deserialization (created using XML Schema Definition Tool)
 
 Time spent: 4-5 hours.
 
