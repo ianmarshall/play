@@ -9,6 +9,9 @@ using WeatherForecastApp.Models;
 
 namespace WeatherForecastApp.Services
 {
+    /// <summary>
+    /// Manages rss weather feeds
+    /// </summary>
     public class RssReader : IRssReader
     {
         private const string Url = "http://weather.yahooapis.com/forecastrss";
